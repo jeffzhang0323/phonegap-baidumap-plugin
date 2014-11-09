@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+    id="com.isoft.baidu.location"
+    version="0.0.1"
+    xmlns="http://apache.org/cordova/ns/plugins/1.0" >
+
+    <name>startService</name>
+
+    <description>Cordova Baidu map Background Location Plugin</description>
+
+    <license>Apache 2.0</license>
+
+    <keywords>cordova,Baidu</keywords>
+
+    <js-module name="startService" src="www/startService.js" >
+      <clobbers target="navigator.startService" />
+    </js-module>
+
+    <!-- android -->
+
+    <platform name="android" >
+        <config-file parent="/*" target="res/xml/config.xml" >
+            <feature name="startService" >
+                <param name="android-package" value="com.isoft.baidu.location.startService" />
+            </feature>
+        </config-file>
+
+        <source-file
+            src="src/android/startService.java"
+            target-dir="src/com/isoft/baidu/location" />
+
+        <source-file
+            src="src/android/BDService.java"
+            target-dir="src/com/isoft/baidu/location" />
+        <source-file src="libs/BaiduLBS_Android.jar" target-dir="libs" framework="true"/>
+        <source-file src="libs/armeabi/liblocSDK4d.so" target-dir="libs/armeabi" framework="true"/>
+      
+      <config-file target="AndroidManifest.xml" parent="/manifest/application">
+        <service android:name="com.isoft.baidu.location.startService" android:enabled="true" android:process=":remote" />
+      </config-file>
+      <config-file
+            parent="/manifest"
+            target="AndroidManifest.xml" >
+
+            <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" >
+            </uses-permission>
+
+            <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" >
+            </uses-permission>
+
+            <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" >
+            </uses-permission>
+
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" >
+            </uses-permission>
+
+            <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" >
+            </uses-permission>
+
+            <uses-permission android:name="android.permission.READ_PHONE_STATE" >
+            </uses-permission>
+
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" >
+            </uses-permission>
+
+            <uses-permission android:name="android.permission.INTERNET" />
+
+            <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" >
+            </uses-permission>
+
+            <uses-permission android:name="android.permission.READ_LOGS" >
+            </uses-permission>
+
+            <uses-permission android:name="android.permission.VIBRATE" />
+
+            <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+            <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+        </config-file>
+    </platform>
+
+</plugin>
