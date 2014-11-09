@@ -1,3 +1,0 @@
-E:\Phonegap\saleslbs>plugman install --platform android --project E:\Phonegap\sa
-leslbs\platforms\android\ --plugin E:\Phonegap\saleslbs\plugins\com.isoft.baidu.
-location
